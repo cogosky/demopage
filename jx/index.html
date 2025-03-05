@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解析坊-全网视频解析</title>
+    <style>
+        /* 重置默认样式 */
+        body, h1, select, input, button {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* 背景和整体布局 */
+        body {
+            background-image: url('https://bing.com/th?id=OHR.MtStMichel_ZH-CN1232662142_1920x1080.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            backdrop-filter: blur(3px);
+        }
+        /* 主容器样式 */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        /* 标题样式 */
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: white;
+            margin-bottom: 12px;
+        }
+        /* 表单元素样式 */
+        select, input, button {
+            margin: 0 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        select {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        input {
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        button {
+            cursor: pointer;
+            color: white;
+            background-color: #007BFF;
+        }
+        /* 添加 Github 链接样式 */
+        .github-link {
+            margin-top: 15px;
+            color: white;
+        }
+        .github-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .github-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>解析坊-全网视频解析</h1>
+        <h2>⚠本工具仅供学习使用,请勿用于非法用途</h2>
+        <h2>❗接口来自于网络，可能夹带广告，请勿轻信！</h2>
+        <div>
+            <select id="解析方式">
+                <option value="xmflv">虾米解析</option>
+                <option value="im1907">im1907解析</option>
+            </select>
+            <input type="text" id="视频链接" placeholder="粘贴视频链接">
+            <button onclick="解析视频()">解析</button>
+        </div>
+        <div class="github-link">
+            本项目已开源至<a href="https://github.com/chengtx809/jxfang" target="_blank">Github</a>
+        </div>
+    </div>
+
+    <script>
+        function 解析视频() {
+            var 解析方式 = document.getElementById("解析方式").value;
+            var 视频链接 = document.getElementById("视频链接").value;
+            var 目标链接;
+
+            if (解析方式 === "xmflv") {
+                目标链接 = "https://jx.xmflv.com/?url=" + 视频链接;
+            } else if (解析方式 === "im1907") {
+                目标链接 = "https://im1907.top/?jx=" + 视频链接;
+            }
+
+            if (视频链接) {
+                window.open(目标链接, "_blank");
+            } else {
+                alert("请输入视频链接！");
+            }
+        }
+    </script>
+</body>
+</html>
